@@ -1,0 +1,12 @@
+
+.open-sans-font {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}

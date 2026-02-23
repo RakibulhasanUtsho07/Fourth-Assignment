@@ -3,9 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- Geist font linked-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Tailwind css linked-->
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Link css styles-->
+     <link rel="stylesheet" href="styles/style.css">
+    <title>Job Tracker</title>
 </head>
-<body>
+<body class="open-sans-font bg-[#F1F2F4]">  
+    <header class="w-[80%]  mx-auto mt-[60px]">
+        <h2 class="text-[32px] font-bold leading-[32px] text-[#002C5C] mb-5">Job Application Tracker</h2>
+        <div class="job-counter grid grid-cols-3 gap-[16px]  ">
+            <div  class="  counter bg-[#FFFFFF]     p-5 rounded-lg">
+                <p class="text-[14px] text-[#323B49] font-medium">Total</p>
+                <h3 id="total-participant" class="text-[24px] font-bold text-[#002C5C]">8</h3>
+            </div>
+            <div class="total-interviewers counter bg-[#FFFFFF]  p-5 rounded-lg">
+                <p class="text-[14px] text-[#323B49] font-medium">Interview</p>
+                <h3 id="total-interviewers"  class="interview text-[24px] font-bold text-[#10B981]">0</h3>          
+            </div>
+            <div  class=" counter bg-[#FFFFFF]  p-5 rounded-lg">
+            
+                <p class="text-[14px] text-[#323B49] font-medium">Rejected</p>
+                <h3 id ="total-rejection" class="rejected text-[24px] font-bold text-[#EF4444]">0</h3>
+            </div>
+        </div>
+    </header>
+    <main class="main w-[80%]  mx-auto mt-[60px] ">
+        <section class="section">
+            <h3 class="text-[20px] font-semibold text-[#111827] mb-6">Available Jobs</h3>
+            <div class="flex gap-4">
+                <button onclick="toggleStyle('all-filter-btn')" id="all-filter-btn"  class="p-3 text-white bg-blue-500  px-8 rounded  text-[12px] cursor-pointer">All</button>
+                <button onclick="toggleStyle('interview-filter-btn')" id="interview-filter-btn" class="p-3 bg-white px-8 rounded text-[#64748B] text-[12px] cursor-pointer">Interview</button>
+                <button onclick="toggleStyle('rejected-filter-btn')" id="rejected-filter-btn" class ="p-3 bg-white px-8 rounded text-[#64748B] text-[12px] cursor-pointer">Rejected</button>
+            </div>
+            <div id="job-applications-container" class=" mt-4 space-y-5 ">
+                 <!--Application form 1-->
+                <div  class="job-application  p-6 bg-white rounded-lg">
+                    <h3 class="text-[18px] text-[#002C5C] leading-[26px] font-semibold mb-[4px]">Mobile First Corp</h3>
+                    <p class="text-[16px] text-[#64748B] leading-[22px] mb-5">React Native Developer</p>
+                    <ul class="list-disc flex gap-10 mb-[20px] ">
+                        <span class="text-[#64748B] text-[14px] leading-[20px]">Remote</span>
+                        <li class="text-[#64748B] text-[14px] leading-[20px]">Full-time</li>
+                        <li class="text-[#64748B] text-[14px] leading-[20px] ">$130,000 - $175,000</li>
+                    </ul>
+                    <p class="text-[14px] leading-[20px] text-[#002C5C] bg-[#F1F2F4] p-4  w-[120px] rounded-lg mb-[8px]">Not Applied</p>
+                    <p class="text-[14px] leading-[20px] text-[#323B49] mb-5">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                    <div class="selection flex gap-5">
+                        <button onclick="" class="interview-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#10B981] text-[#10B981] cursor-pointer mr-4">interview</button>
+                        <button class="reject-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#EF4444] text-[#EF4444] cursor-pointer" >Rejected</button>
+                    </div>
+                        
+                    
+                    
+                   
+
+                
+            </div>
+                 <!--Application from 2-->
+                <div class="job-application  p-6 bg-white rounded-lg">
+                    <h3 class="text-[18px] text-[#002C5C] leading-[26px] font-semibold mb-[4px]">Mobile First Corp</h3>
+                    <p class="text-[16px] text-[#64748B] leading-[22px] mb-5">React Native Developer</p>
+                    <ul class="list-disc flex gap-10 mb-[20px] ">
+                        <span class="text-[#64748B] text-[14px] leading-[20px]">Remote</span>
+                        <li class="text-[#64748B] text-[14px] leading-[20px]">Full-time</li>
+                        <li class="text-[#64748B] text-[14px] leading-[20px] ">$130,000 - $175,000</li>
+                    </ul>
+                    <p class="text-[14px] leading-[20px] text-[#002C5C] bg-[#F1F2F4] p-4  w-[120px] rounded-lg mb-[8px]">Not Applied</p>
+                    <p class="text-[14px] leading-[20px] text-[#323B49] mb-5">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                    <div class="selection flex gap-5">
+                        <button class="interview-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#10B981] text-[#10B981] cursor-pointer">interview</button>
+                        <button class="reject-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#EF4444] text-[#EF4444] cursor-pointer" >Rejected</button>
+                    </div>
+                    
+                    
+
+                
+            </div>
+                 <!--Application from 3-->
+                <div class="job-application  p-6 bg-white rounded-lg">
+                    <h3 class="text-[18px] text-[#002C5C] leading-[26px] font-semibold mb-[4px]">Mobile First Corp</h3>
+                    <p class="text-[16px] text-[#64748B] leading-[22px] mb-5">React Native Developer</p>
+                    <ul class="list-disc flex gap-10 mb-[20px] ">
+                        <span class="text-[#64748B] text-[14px] leading-[20px]">Remote</span>
+                        <li class="text-[#64748B] text-[14px] leading-[20px]">Full-time</li>
+                        <li class="text-[#64748B] text-[14px] leading-[20px] ">$130,000 - $175,000</li>
+                    </ul>
+                    <p class="text-[14px] leading-[20px] text-[#002C5C] bg-[#F1F2F4] p-4  w-[120px] rounded-lg mb-[8px]">Not Applied</p>
+                    <p class="text-[14px] leading-[20px] text-[#323B49] mb-5">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                    <div class="selection flex gap-5">
+                        <button class="interview-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#10B981] text-[#10B981] cursor-pointer">interview</button>
+                        <button class="reject-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#EF4444] text-[#EF4444] cursor-pointer" >Rejected</button>
+                    </div>
+                    
+
+                
+            </div>
+                 <!--Application from 4-->
+                <div class="job-application  p-6 bg-white rounded-lg">
+                    <h3 class="text-[18px] text-[#002C5C] leading-[26px] font-semibold mb-[4px]">Mobile First Corp</h3>
+                    <p class="text-[16px] text-[#64748B] leading-[22px] mb-5">React Native Developer</p>
+                    <ul class="list-disc flex gap-10 mb-[20px] ">
+                        <span class="text-[#64748B] text-[14px] leading-[20px]">Remote</span>
+                        <li class="text-[#64748B] text-[14px] leading-[20px]">Full-time</li>
+                        <li class="text-[#64748B] text-[14px] leading-[20px] ">$130,000 - $175,000</li>
+                    </ul>
+                    <p class="text-[14px] leading-[20px] text-[#002C5C] bg-[#F1F2F4] p-4  w-[120px] rounded-lg mb-[8px]">Not Applied</p>
+                    <p class="text-[14px] leading-[20px] text-[#323B49] mb-5">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                    <div class="selection flex gap-5">
+                        <button class="interview-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#10B981] text-[#10B981] cursor-pointer ">interview</button>
+                        <button class="reject-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#EF4444] text-[#EF4444] cursor-pointer " >Rejected</button>
+                    </div>
+                    
+
+                
+            </div>
+                <!--Application from 5-->
+                <div class="job-application  p-6 bg-white rounded-lg">
+                    <h3 class="text-[18px] text-[#002C5C] leading-[26px] font-semibold mb-[4px]">Mobile First Corp</h3>
+                    <p class="text-[16px] text-[#64748B] leading-[22px] mb-5">React Native Developer</p>
+                    <ul class="list-disc flex gap-10 mb-[20px] ">
+                        <span class="text-[#64748B] text-[14px] leading-[20px]">Remote</span>
+                        <li class="text-[#64748B] text-[14px] leading-[20px]">Full-time</li>
+                        <li class="text-[#64748B] text-[14px] leading-[20px] ">$130,000 - $175,000</li>
+                    </ul>
+                    <p class="text-[14px] leading-[20px] text-[#002C5C] bg-[#F1F2F4] p-4  w-[120px] rounded-lg mb-[8px]">Not Applied</p>
+                    <p class="text-[14px] leading-[20px] text-[#323B49] mb-5">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                    <div class="selection flex gap-5">
+                        <button class="interview-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#10B981] text-[#10B981] cursor-pointer">interview</button>
+                        <button class="reject-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#EF4444] text-[#EF4444] cursor-pointer" >Rejected</button>
+                    </div>
+                    
+                    
+
+                
+            </div>
+                 <!--Application from 6-->
+                <div class="job-application  p-6 bg-white rounded-lg">
+                    <h3 class="text-[18px] text-[#002C5C] leading-[26px] font-semibold mb-[4px]">Mobile First Corp</h3>
+                    <p class="text-[16px] text-[#64748B] leading-[22px] mb-5">React Native Developer</p>
+                    <ul class="list-disc flex gap-10 mb-[20px] ">
+                        <span class="text-[#64748B] text-[14px] leading-[20px]">Remote</span>
+                        <li class="text-[#64748B] text-[14px] leading-[20px]">Full-time</li>
+                        <li class="text-[#64748B] text-[14px] leading-[20px] ">$130,000 - $175,000</li>
+                    </ul>
+                    <p class="text-[14px] leading-[20px] text-[#002C5C] bg-[#F1F2F4] p-4  w-[120px] rounded-lg mb-[8px]">Not Applied</p>
+                    <p class="text-[14px] leading-[20px] text-[#323B49] mb-5">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                    <div class="selection flex gap-5">
+                        <button class="interview-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#10B981] text-[#10B981] cursor-pointer">interview</button>
+                        <button class="reject-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#EF4444] text-[#EF4444] cursor-pointer" >Rejected</button>
+                    </div>
+                    
+                    
+
+                
+            </div>
+                 <!--Application from 7-->
+                <div class="job-application  p-6 bg-white rounded-lg">
+                    <h3 class="text-[18px] text-[#002C5C] leading-[26px] font-semibold mb-[4px]">Mobile First Corp</h3>
+                    <p class="text-[16px] text-[#64748B] leading-[22px] mb-5">React Native Developer</p>
+                    <ul class="list-disc flex gap-10 mb-[20px] ">
+                        <span class="text-[#64748B] text-[14px] leading-[20px]">Remote</span>
+                        <li class="text-[#64748B] text-[14px] leading-[20px]">Full-time</li>
+                        <li class="text-[#64748B] text-[14px] leading-[20px] ">$130,000 - $175,000</li>
+                    </ul>
+                    <p class="text-[14px] leading-[20px] text-[#002C5C] bg-[#F1F2F4] p-4  w-[120px] rounded-lg mb-[8px]">Not Applied</p>
+                    <p class="text-[14px] leading-[20px] text-[#323B49] mb-5">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                    <div class="selection flex gap-5">
+                        <button class="interview-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#10B981] text-[#10B981] cursor-pointer">interview</button>
+                        <button class="reject-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#EF4444] text-[#EF4444] cursor-pointer" >Rejected</button>
+                    </div>
+                    
+                    
+
+                
+            </div>
+                 <!--Application from 8-->
+                <div class="job-application  p-6 bg-white rounded-lg">
+                    <h3 class="text-[18px] text-[#002C5C] leading-[26px] font-semibold mb-[4px]">Mobile First Corp</h3>
+                    <p class="text-[16px] text-[#64748B] leading-[22px] mb-5">React Native Developer</p>
+                    <ul class="list-disc flex gap-10 mb-[20px] ">
+                        <span class="text-[#64748B] text-[14px] leading-[20px]">Remote</span>
+                        <li class="text-[#64748B] text-[14px] leading-[20px]">Full-time</li>
+                        <li class="text-[#64748B] text-[14px] leading-[20px] ">$130,000 - $175,000</li>
+                    </ul>
+                    <p class="text-[14px] leading-[20px] text-[#002C5C] bg-[#F1F2F4] p-4  w-[120px] rounded-lg mb-[8px]">Not Applied</p>
+                    <p class="text-[14px] leading-[20px] text-[#323B49] mb-5">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                    <div class="selection flex gap-5">
+                        <button class="interview-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#10B981] text-[#10B981] cursor-pointer">interview</button>
+                        <button class="reject-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#EF4444] text-[#EF4444] cursor-pointer" >Rejected</button>
+                    </div>
+                    
+                    
+
+                
+            </div>
+                 <!--Application from 9-->
+                <div class="job-application  p-6 bg-white rounded-lg">
+                    <h3 class="text-[18px] text-[#002C5C] leading-[26px] font-semibold mb-[4px]">Mobile First Corp</h3>
+                    <p class="text-[16px] text-[#64748B] leading-[22px] mb-5">React Native Developer</p>
+                    <ul class="list-disc flex gap-10 mb-[20px] ">
+                        <span class="text-[#64748B] text-[14px] leading-[20px]">Remote</span>
+                        <li class="text-[#64748B] text-[14px] leading-[20px]">Full-time</li>
+                        <li class="text-[#64748B] text-[14px] leading-[20px] ">$130,000 - $175,000</li>
+                    </ul>
+                    <p class="text-[14px] leading-[20px] text-[#002C5C] bg-[#F1F2F4] p-4  w-[120px] rounded-lg mb-[8px]">Not Applied</p>
+                    <p class="text-[14px] leading-[20px] text-[#323B49] mb-5">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                    <div class="selection flex gap-5">
+                        <button class="interview-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#10B981] text-[#10B981] cursor-pointer">interview</button>
+                        <button class="reject-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#EF4444] text-[#EF4444] cursor-pointer" >Rejected</button>
+                    </div>
+                    
+                    
+
+                
+            </div>
+                 
+                
+
+        </section>
+    </main>
+<script src="./script/application.js"></script>
     
 </body>
 </html>
