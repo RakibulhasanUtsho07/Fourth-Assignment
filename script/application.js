@@ -1,41 +1,112 @@
-let totalParticipantsContainer = [];
+
 let totalInterviewersContainer = [];
 let totalRejectionsContainer = [];
+let currentStatus = "all"
 
  const totalParticipants = document.getElementById("total-participant");
+ const totalApplicationsSecond = document.getElementById("total-applications-second");
  const totalInterviewers = document.getElementById("total-interviewers");
  const totalRejections = document.getElementById("total-rejection");
 
-const allCardDiv = document.getElementById("job-applications-container");
+//const allCardDiv = document.getElementById("job-applications-container");
 const mainContainer = document.querySelector("main");
+const interviewersContainer = document.getElementById("interviewers-container");
+const rejectionsContainer = document.getElementById("rejections-container");
+const noJobApplications = document.getElementById("no-job-applications");
+//render
+function renderRejections(){
+    rejectionsContainer.innerHTML = "";
+
+    for(const rejection of totalRejectionsContainer){
+        let div = document.createElement('div');
+        div.className ="job-application  p-6 bg-white rounded-lg mt-5"
+        div.innerHTML = 
+        `
+        
+                    <h3 class="skill-name text-[18px] text-[#002C5C] leading-[26px] font-semibold mb-[4px]">${rejection.companyName}</h3>
+                    <p class="skill-position text-[16px] text-[#64748B] leading-[22px] mb-5">${rejection.position}</p>
+                    <ul class="list-disc flex gap-10 mb-[20px] ">
+                        <span class="working-style text-[#64748B] text-[14px] leading-[20px]">${rejection.location}</span>
+                        <li class="working-time text-[#64748B] text-[14px] leading-[20px]">${rejection.workingTime}</li>
+                        <li class="salary text-[#64748B] text-[14px] leading-[20px] ">${rejection.salary}</li>
+                    </ul>
+                    <p class="applied-or-not text-[14px] leading-[20px] text-[#002C5C] bg-[#F1F2F4] p-4  w-[120px] rounded-lg mb-[8px]">${rejection.applierOrNot}</p>
+                    <p class="work-information text-[14px] leading-[20px] text-[#323B49] mb-5">${rejection.workInformation}</p>
+                    <div class="selection flex gap-5">
+                        <button onclick="" class="interview-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#10B981] text-[#10B981] cursor-pointer mr-4">interview</button>
+                        <button class="reject-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#EF4444] text-[#EF4444] cursor-pointer" >Rejected</button>
+                    </div>              
+            
+        `
+        rejectionsContainer.appendChild(div);
+    }
+ }
+ //render
+  function renderInterviewers(){
+    interviewersContainer.innerHTML = "";
+
+    for(const interviewer of totalInterviewersContainer){
+        let div = document.createElement('div');
+        div.className ="job-application  p-6 bg-white rounded-lg mt-5"
+        div.innerHTML = 
+        `
+        
+                    <h3 class="skill-name text-[18px] text-[#002C5C] leading-[26px] font-semibold mb-[4px]">${interviewer.companyName}</h3>
+                    <p class="skill-position text-[16px] text-[#64748B] leading-[22px] mb-5">${interviewer.position}</p>
+                    <ul class="list-disc flex gap-10 mb-[20px] ">
+                        <span class="working-style text-[#64748B] text-[14px] leading-[20px]">${interviewer.location}</span>
+                        <li class="working-time text-[#64748B] text-[14px] leading-[20px]">${interviewer.workingTime}</li>
+                        <li class="salary text-[#64748B] text-[14px] leading-[20px] ">${interviewer.salary}</li>
+                    </ul>
+                    <p class="applied-or-not text-[14px] leading-[20px] text-[#002C5C] bg-[#F1F2F4] p-4  w-[120px] rounded-lg mb-[8px]">${interviewer.applierOrNot}</p>
+                    <p class="work-information text-[14px] leading-[20px] text-[#323B49] mb-5">${interviewer.workInformation}</p>
+                    <div class="selection flex gap-5">
+                        <button onclick="" class="interview-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#10B981] text-[#10B981] cursor-pointer mr-4">interview</button>
+                        <button class="reject-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#EF4444] text-[#EF4444] cursor-pointer" >Rejected</button>
+                    </div>
+      
+        `
+        interviewersContainer.appendChild(div);
+    }
+ }
 
 
 
 const allApplications = document.getElementById('job-applications-container');
-console.log(allApplications.children.length);
+// const interviewersContainerSection = document.getElementById('interviewers-container');
+// const rejectionsContainerSection = document.getElementById('rejections-container');
 
-// function calculateCount(){
-//     totalParticipants.innerText = allApplications.children.length;
-//     totalInterviewers.innerText = totalInterviewersContainer.children.length;
-//     totalRejections.innerText = totalRejectionsContainer.children.length;
-// }
-// calculateCount();
+ function calculateCount(){
+    totalParticipants.innerText = allApplications.children.length;
+    
+    totalInterviewers.innerText = totalInterviewersContainer.length;
+    totalRejections.innerText = totalRejectionsContainer.length;
+}
+calculateCount();
+ 
 
- const countTotalParticipants = totalParticipants.innerText;
- let countTotalInterviewers = totalInterviewers.innerText;
-const countTotalRejections = totalRejections.innerText;
- const interviewers =document.querySelectorAll(".interview-btn");
- const rejections = document.querySelectorAll(".reject-btn");
+const totalApplicationsLength = allApplications.children.length;
+const interviewApplicationLength = interviewersContainer.children.length;
+const  rejectionsApplicationLength = rejectionsContainer.children.length;
+console.log(interviewApplicationLength);
+
+
+    const countTotalParticipants = totalParticipants.innerText;
+    let countTotalInterviewers = totalInterviewers.innerText;
+    const countTotalRejections = totalRejections.innerText;
+    const interviewers =document.querySelectorAll(".interview-btn");
+    const rejections = document.querySelectorAll(".reject-btn");
  
  
 
 const allFilterBtn = document.getElementById('all-filter-btn');
 const interviewFilterBtn = document.getElementById('interview-filter-btn');
 const rejectedFilterBtn = document.getElementById('rejected-filter-btn');
+
 function toggleStyle(id){
-    allFilterBtn.classList.remove('bg-blue-500', 'text-black/50');
-    interviewFilterBtn.classList.remove('bg-blue-500', 'text-black/50');
-    rejectedFilterBtn.classList.remove('bg-blue-500', 'text-black/50');
+    allFilterBtn.classList.remove('bg-blue-500', 'text-white');
+    interviewFilterBtn.classList.remove('bg-blue-500', 'text-white');
+    rejectedFilterBtn.classList.remove('bg-blue-500', 'text-white');
 
     allFilterBtn.classList.add('bg-white', 'text-black/50');
     interviewFilterBtn.classList.add('bg-white', 'text-black/50');
@@ -44,15 +115,150 @@ function toggleStyle(id){
 
 
     const open = document.getElementById(id);
+    currentStatus = id;
      
 
     open.classList.remove('bg-white', 'text-black/50');
-    open.classList.add('bg-blue-500', 'text-white')
+    open.classList.add('bg-blue-500', 'text-white');
+   
+
+
+    
+     if(id === "interview-filter-btn"){
+        allApplications.classList.add("hidden");
+        rejectionsContainer.classList.add("hidden")
+        interviewersContainer.classList.remove("hidden")
+        renderInterviewers()
+        
+
+
+    }
+    else if(id === "rejected-filter-btn" ){
+        allApplications.classList.add("hidden");
+        interviewersContainer.classList.add("hidden");
+        rejectionsContainer.classList.remove("hidden")
+        renderRejections()
+        
+
+    }
+    else if(id == "all-filter-btn")
+        {
+         
+        interviewersContainer.classList.add("hidden");
+        rejectionsContainer.classList.add("hidden");
+        allApplications.classList.remove("hidden");
+    }
+    if(id === "all-filter-btn"){
+        if(totalApplicationsLength <= 0){
+            allApplications.classList.add("hidden");
+            noJobApplications.classList.remove("hidden");
+        }
+    }
+    else if(id === "interview-filter-btn"){
+        if(interviewApplicationLength <= 0){
+            interviewersContainer.classList.add("hidden")
+            noJobApplications.classList.remove("hidden");
+        }
+    }
+    else if(id === "rejected-filter-btn"){
+        if(rejectionsApplicationLength <= 0){
+            rejectionsContainer.classList.remove("hidden");
+            noJobApplications.classList.remove("hidden");
+        }
+    }
+
+   
 
     
 }
-mainContainer.addEventListener("click",function(event){
-    console.log(event.target.parentNode.parentNode);
-    const skillName = event.target.parentNode.parentNode;
-    console.log(skillName.innerText);
+mainContainer.addEventListener("click",function (event){
+    
+    if(event.target.classList.contains("interview-btn")){
+        const applicationInformation = event.target.parentNode.parentNode;
+        const companyName = applicationInformation.querySelector('.company-name ').innerText;
+        const position = applicationInformation.querySelector('.position').innerText;
+        const location = applicationInformation.querySelector('.location').innerText;
+        const workingTime = applicationInformation.querySelector('.working-time').innerText;
+        const salary = applicationInformation.querySelector('.salary').innerText;
+        const applierOrNot = applicationInformation.querySelector('.applied-or-not').innerText;
+        const workInformation = applicationInformation.querySelector('.work-information').innerText;
+        applicationInformation.querySelector('.applied-or-not').innerText = "APPLIED";
+
+       const applicantInfo = {
+            companyName,
+             position,
+             location,
+             workingTime,
+            salary,
+            applierOrNot :'APPLIED',
+            workInformation
+    }
+    
+   
+    const nameExist= totalInterviewersContainer.find(item=> item.companyName == applicantInfo.companyName)
+    if(!nameExist){
+        totalInterviewersContainer.push(applicantInfo);
+        
+    }
+    totalRejectionsContainer = totalRejectionsContainer.filter(item => item.companyName != applicantInfo.companyName);
+     
+    if(currentStatus =="interview-filter-btn"){
+        renderInterviewers();
+    }
+
+    renderInterviewers();
+    renderRejections();
+    calculateCount();
+   
+
+    
+        
+        
+    }  
+      else if(event.target.classList.contains("reject-btn")){
+         const applicationInformation = event.target.parentNode.parentNode;
+         const companyName = applicationInformation.querySelector('.company-name ').innerText;
+        const position = applicationInformation.querySelector('.position').innerText;
+        const location = applicationInformation.querySelector('.location').innerText;
+        const workingTime = applicationInformation.querySelector('.working-time').innerText;
+        const salary = applicationInformation.querySelector('.salary').innerText;
+        const applierOrNot = applicationInformation.querySelector('.applied-or-not').innerText;
+        const workInformation = applicationInformation.querySelector('.work-information').innerText;
+        applicationInformation.querySelector('.applied-or-not').innerText = "REJECTED";
+
+        const applicantInfo = {
+            companyName,
+            position,
+            location,
+            workingTime,
+            salary,
+            applierOrNot : 'REJECTED',
+            workInformation
+        }
+    
+   
+    const nameExist= totalRejectionsContainer.find(item=> item.companyName == applicantInfo.companyName)
+    if(!nameExist){
+        totalRejectionsContainer.push(applicantInfo);
+         
+    }
+    totalInterviewersContainer = totalInterviewersContainer.filter(item => item.companyName != applicantInfo.companyName);
+     
+    if(currentStatus == "rejected-filter-btn"){
+        renderRejections();
+    }
+    renderInterviewers();
+    renderRejections();
+    calculateCount();
+    
+    // rejection render
+
+    
+
+        
+         
+}  
 })
+    
+
+   
