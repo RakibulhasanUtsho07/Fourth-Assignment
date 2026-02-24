@@ -23,24 +23,25 @@ function renderRejections(){
         div.innerHTML = 
         `
         
-                    <div class ="flex justify-between">
-                        <div>
-                            <h3 class="skill-name text-[18px] text-[#002C5C] leading-[26px] font-semibold mb-[4px]">${rejection.companyName}</h3>
-                            <p class="skill-position text-[16px] text-[#64748B] leading-[22px] mb-5">${rejection.position}</p>
+                    
+                        <div class="flex justify-between ">
+                            <div>
+                                <h3 class="company-name text-[18px] text-[#002C5C] leading-[26px] font-semibold mb-[4px]">${rejection.companyName}</h3>
+                                <p class="position text-[16px] text-[#64748B] leading-[22px] mb-5">${rejection.position}</p>
+                            </div>
+                            <img src="./Trash.png" alt="" class="w-[12px] h-[13px]  border border-gray/50 rounded-full cursor-pointer card-delete">
                         </div>
-                        <img src="./Trash.png" alt="" class="w-[12px] h-[13px]  border border-gray/50 rounded-full cursor-pointer">
-                    </div>
-                    <ul class="list-disc flex gap-10 mb-[20px] ">
-                        <span class="working-style text-[#64748B] text-[14px] leading-[20px]">${rejection.location}</span>
-                        <li class="working-time text-[#64748B] text-[14px] leading-[20px]">${rejection.workingTime}</li>
-                        <li class="salary text-[#64748B] text-[14px] leading-[20px] ">${rejection.salary}</li>
-                    </ul>
-                    <p class="applied-or-not text-[14px] leading-[20px] text-[#002C5C] bg-[#F1F2F4] p-4  w-[120px] rounded-lg mb-[8px] text-center">${rejection.applierOrNot}</p>
-                    <p class="work-information text-[14px] leading-[20px] text-[#323B49] mb-5">${rejection.workInformation}</p>
-                    <div class="selection flex gap-5">
-                        <button onclick="" class="interview-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#10B981] text-[#10B981] cursor-pointer mr-4">interview</button>
-                        <button class="reject-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#EF4444] text-[#EF4444] cursor-pointer" >Rejected</button>
-                    </div>              
+                        <ul class="list-disc flex gap-10 mb-[20px] ">
+                            <span class="location text-[#64748B] text-[14px] leading-[20px]">${rejection.location}</span>
+                            <li class="working-time text-[#64748B] text-[14px] leading-[20px]">${rejection.workingTime}</li>
+                            <li class="salary text-[#64748B] text-[14px] leading-[20px] ">${rejection.salary}</li>
+                        </ul>
+                        <p class="applied-or-not text-[14px] leading-[20px] text-[#002C5C] bg-[#F1F2F4] p-4       w-[120px] rounded-lg mb-[8px] text-center">${rejection.applierOrNot}</p>
+                        <p class="work-information text-[14px] leading-[20px] text-[#323B49] mb-5">${rejection.workInformation}</p>
+                        <div class="selection flex gap-5">
+                            <button onclick="" class="interview-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#10B981] text-[#10B981] cursor-pointer ">interview</button>
+                            <button class="reject-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#EF4444] text-[#EF4444] cursor-pointer" >Rejected</button>
+                        </div>              
             
         `
         rejectionsContainer.appendChild(div);
@@ -56,35 +57,31 @@ function renderRejections(){
         div.innerHTML = 
         `
         
-                    <div class = "flex justify-between">
-                        <div>
-                            <h3 class="skill-name text-[18px] text-[#002C5C] leading-[26px] font-semibold mb-[4px]">${interviewer.companyName}</h3>
-                            <p class="skill-position text-[16px] text-[#64748B] leading-[22px] mb-5">${interviewer.position}</p>
+                    <div class="flex justify-between ">
+                            <div>
+                                <h3 class="company-name text-[18px] text-[#002C5C] leading-[26px] font-semibold mb-[4px]">${interviewer.companyName}</h3>
+                                <p class="position text-[16px] text-[#64748B] leading-[22px] mb-5">${interviewer.position}</p>
+                            </div>
+                            <img src="./Trash.png" alt="" class="w-[12px] h-[13px]  border border-gray/50 rounded-full cursor-pointer card-delete">
                         </div>
-                        <img src="./Trash.png" alt="" class="w-[12px] h-[13px]  border border-gray/50 rounded-full cursor-pointer">
-                    </div>
-                    <ul class="list-disc flex gap-10 mb-[20px] ">
-                        <span class="working-style text-[#64748B] text-[14px] leading-[20px]">${interviewer.location}</span>
-                        <li class="working-time text-[#64748B] text-[14px] leading-[20px]">${interviewer.workingTime}</li>
-                        <li class="salary text-[#64748B] text-[14px] leading-[20px] ">${interviewer.salary}</li>
-                    </ul>
-                    <p class="applied-or-not text-[14px] leading-[20px] text-[#002C5C] bg-[#F1F2F4] p-4  w-[120px] rounded-lg mb-[8px] text-center">${interviewer.applierOrNot}</p>
-                    <p class="work-information text-[14px] leading-[20px] text-[#323B49] mb-5">${interviewer.workInformation}</p>
-                    <div class="selection flex gap-5">
-                        <button onclick="" class="interview-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#10B981] text-[#10B981] cursor-pointer mr-4">interview</button>
-                        <button class="reject-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#EF4444] text-[#EF4444] cursor-pointer" >Rejected</button>
-                    </div>
+                        <ul class="list-disc flex gap-10 mb-[20px] ">
+                            <span class="location text-[#64748B] text-[14px] leading-[20px]">${interviewer.location}</span>
+                            <li class="working-time text-[#64748B] text-[14px] leading-[20px]">${interviewer.workingTime}</li>
+                            <li class="salary text-[#64748B] text-[14px] leading-[20px] ">${interviewer.salary}</li>
+                        </ul>
+                        <p class="applied-or-not text-[14px] leading-[20px] text-[#002C5C] bg-[#F1F2F4] p-4       w-[120px] rounded-lg mb-[8px] text-center">${interviewer.applierOrNot}</p>
+                        <p class="work-information text-[14px] leading-[20px] text-[#323B49] mb-5">${interviewer.workInformation}</p>
+                        <div class="selection flex gap-5">
+                            <button onclick="" class="interview-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#10B981] text-[#10B981] cursor-pointer ">interview</button>
+                            <button class="reject-btn text-[14px] leading-[20px] p-4 px-6 rounded-lg border border-[#EF4444] text-[#EF4444] cursor-pointer" >Rejected</button>
+                        </div>  
       
         `
         interviewersContainer.appendChild(div);
     }
  }
-
-
-
 const allApplications = document.getElementById('job-applications-container');
-// const interviewersContainerSection = document.getElementById('interviewers-container');
-// const rejectionsContainerSection = document.getElementById('rejections-container');
+
 
  function calculateCount(){
     totalParticipants.innerText = allApplications.children.length;
@@ -98,7 +95,7 @@ calculateCount();
 const totalApplicationsLength = allApplications.children.length;
 const interviewApplicationLength = interviewersContainer.children.length;
 const  rejectionsApplicationLength = rejectionsContainer.children.length;
-console.log(interviewApplicationLength);
+   
  
 
     const countTotalParticipants = totalParticipants.innerText;
@@ -135,6 +132,7 @@ function toggleStyle(id){
 
     
     if(id === "all-filter-btn"){
+        
         if(allApplications.children.length <= 0){
             allApplications.classList.add("hidden");
             noJobApplications.classList.remove("hidden");
@@ -146,9 +144,11 @@ function toggleStyle(id){
             noJobApplications.classList.add("hidden");
         }
         
+        
     }
     else if(id === "interview-filter-btn"){
         renderInterviewers()
+        
         if(interviewersContainer.children.length <= 0){
             allApplications.classList.add("hidden");
             interviewersContainer.classList.add("hidden")
@@ -161,12 +161,11 @@ function toggleStyle(id){
             noJobApplications.classList.add("hidden");
             
         }
-            
-        
-        }
+}
         
     else if(id === "rejected-filter-btn"){
         renderInterviewers()
+        calculateCount();
         if(rejectionsContainer.children.length <= 0){
             allApplications.classList.add("hidden");
             rejectionsContainer.classList.remove("hidden");
@@ -178,22 +177,26 @@ function toggleStyle(id){
             rejectionsContainer.classList.remove("hidden");
             noJobApplications.classList.add("hidden");
             
-        }
-            
-    
-    }
-        
-    }
+        }   
+    } 
+ }
     
 
 mainContainer.addEventListener("click", function(trash){
+    
     if(trash.target.classList.contains("card-delete")){
-        const  cardDelete = trash.target.parentNode.parentNode;
-        if(cardDelete){
-            cardDelete.remove();
+        const  cardDelete = trash.target.closest(".job-application")
+        
+            if(cardDelete){
+                const companyName = cardDelete.querySelector(".company-name").innerText
+                cardDelete.remove();
+                totalInterviewersContainer = totalInterviewersContainer.filter(item => item.companyName !== companyName);
+                totalRejectionsContainer = totalRejectionsContainer.filter(item => item.companyName !== companyName);
+                
+                calculateCount();
+            
+            }
         }
-      
-    }
 })
 
     
@@ -203,7 +206,7 @@ mainContainer.addEventListener("click",function (event){
     
     if(event.target.classList.contains("interview-btn")){
         const applicationInformation = event.target.parentNode.parentNode;
-        const companyName = applicationInformation.querySelector('.company-name ').innerText;
+        const companyName = applicationInformation.querySelector('.company-name').innerText;
         const position = applicationInformation.querySelector('.position').innerText;
         const location = applicationInformation.querySelector('.location').innerText;
         const workingTime = applicationInformation.querySelector('.working-time').innerText;
@@ -244,8 +247,8 @@ mainContainer.addEventListener("click",function (event){
         
     }  
       else if(event.target.classList.contains("reject-btn")){
-         const applicationInformation = event.target.parentNode.parentNode;
-         const companyName = applicationInformation.querySelector('.company-name ').innerText;
+        const applicationInformation = event.target.parentNode.parentNode;
+        const companyName = applicationInformation.querySelector('.company-name').innerText;
         const position = applicationInformation.querySelector('.position').innerText;
         const location = applicationInformation.querySelector('.location').innerText;
         const workingTime = applicationInformation.querySelector('.working-time').innerText;
@@ -279,14 +282,8 @@ mainContainer.addEventListener("click",function (event){
     renderRejections();
     calculateCount();
     
-    // rejection render
-
-    
-
-        
+       
          
 }  
 })
     
-
-   
