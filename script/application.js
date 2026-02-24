@@ -3,17 +3,31 @@ let totalInterviewersContainer = [];
 let totalRejectionsContainer = [];
 let currentStatus = "all"
 
+const noJob ="No jobs available"
+const noJobOpportunities ="Check back soon for new job opportunities"
+const noInterviews ="No interview available"
+const noInterviewOpportunities ="Check back soon for new interviews opportunities"
+const noRejections ="No rejections available"
+const noRejectionsOpportunities ="Check back soon for new rejections"
+
+const secondCountName = document.getElementById("second-count-name");
  const totalParticipants = document.getElementById("total-participant");
  const totalApplicationsSecond = document.getElementById("total-applications-second");
  const totalInterviewers = document.getElementById("total-interviewers");
  const totalRejections = document.getElementById("total-rejection");
+ const allFilterBtn = document.getElementById('all-filter-btn');
+const interviewFilterBtn = document.getElementById('interview-filter-btn');
+const rejectedFilterBtn = document.getElementById('rejected-filter-btn');
 
-//const allCardDiv = document.getElementById("job-applications-container");
 const mainContainer = document.querySelector("main");
 const interviewersContainer = document.getElementById("interviewers-container");
 const rejectionsContainer = document.getElementById("rejections-container");
 const noJobApplications = document.getElementById("no-job-applications");
-//render
+const interviewers =document.querySelectorAll(".interview-btn");
+const rejections = document.querySelectorAll(".reject-btn");
+
+
+//rejection render
 function renderRejections(){
     rejectionsContainer.innerHTML = "";
 
@@ -47,7 +61,7 @@ function renderRejections(){
         rejectionsContainer.appendChild(div);
     }
  }
- //render
+ //interviewers render
   function renderInterviewers(){
     interviewersContainer.innerHTML = "";
 
@@ -82,9 +96,10 @@ function renderRejections(){
  }
 const allApplications = document.getElementById('job-applications-container');
 
-
+ // create a function to count dynamically   how many application, interviewers, rejections
  function calculateCount(){
     totalParticipants.innerText = allApplications.children.length;
+    totalApplicationsSecond.innerText = allApplications.children.length
     
     totalInterviewers.innerText = totalInterviewersContainer.length;
     totalRejections.innerText = totalRejectionsContainer.length;
@@ -101,14 +116,10 @@ const  rejectionsApplicationLength = rejectionsContainer.children.length;
     const countTotalParticipants = totalParticipants.innerText;
     let countTotalInterviewers = totalInterviewers.innerText;
     const countTotalRejections = totalRejections.innerText;
-    const interviewers =document.querySelectorAll(".interview-btn");
-    const rejections = document.querySelectorAll(".reject-btn");
+    
  
  
 
-const allFilterBtn = document.getElementById('all-filter-btn');
-const interviewFilterBtn = document.getElementById('interview-filter-btn');
-const rejectedFilterBtn = document.getElementById('rejected-filter-btn');
 
 function toggleStyle(id){
     allFilterBtn.classList.remove('bg-blue-500', 'text-white');
@@ -147,8 +158,8 @@ function toggleStyle(id){
         
     }
     else if(id === "interview-filter-btn"){
-        renderInterviewers()
         
+        renderInterviewers()
         if(interviewersContainer.children.length <= 0){
             allApplications.classList.add("hidden");
             interviewersContainer.classList.add("hidden")
@@ -164,6 +175,7 @@ function toggleStyle(id){
 }
         
     else if(id === "rejected-filter-btn"){
+        
         renderInterviewers()
         calculateCount();
         if(rejectionsContainer.children.length <= 0){
@@ -179,8 +191,41 @@ function toggleStyle(id){
             
         }   
     } 
- }
+    if(id === "all-filter-btn"){
+        noJobApplications.innerHTML =`
+                <img src="./jobs.png" alt="" class="mx-auto">
+                <h3 class="text-[20px] font-semibold text-[#111827]">${noJob}</h3>
+                <p class="text-[14px] leading-[20px] text-[#323B49]">${noJobOpportunities}</p>
+        `
+    }
+    if(id === "interview-filter-btn"){
+        noJobApplications.innerHTML =`
+                <img src="./jobs.png" alt="" class="mx-auto">
+                <h3 class="text-[20px] font-semibold text-[#111827]">${noInterviews}</h3>
+                <p class="text-[14px] leading-[20px] text-[#323B49]">${noInterviewOpportunities}</p>
+        `
+    }
+    if(id === "rejected-filter-btn"){
+        noJobApplications.innerHTML =`
+                <img src="./jobs.png" alt="" class="mx-auto">
+                <h3 class="text-[20px] font-semibold text-[#111827]">${noRejections}</h3>
+                <p class="text-[14px] leading-[20px] text-[#323B49]">${noRejectionsOpportunities}</p>
+        `
+    }
+    if(id === "all-filter-btn"){
+        secondCountName.innerText = "Jobs"
+        totalApplicationsSecond.innerText = allApplications.children.length;
+    }
+    else if(id ==="interview-filter-btn"){
+        secondCountName.innerText ="Interviewers"
+        totalApplicationsSecond.innerText = totalInterviewersContainer.length;
+    }
+    else if(id === "rejected-filter-btn"){
+        secondCountName.innerText ="Rejections"
+        totalApplicationsSecond.innerText = totalRejectionsContainer.length;
+    }
     
+ }  
 
 mainContainer.addEventListener("click", function(trash){
     
@@ -195,12 +240,32 @@ mainContainer.addEventListener("click", function(trash){
                 
                 calculateCount();
             
+                if(currentStatus ==="interview-filter-btn" && totalInterviewersContainer.length === 0){
+                    interviewersContainer.classList.add("hidden");
+                    noJobApplications.classList.remove("hidden");
+                }
+                else if(currentStatus==="rejected-filter-btn" &&totalRejectionsContainer.length === 0){
+                    rejectionsContainer.classList.add("hidden")
+                    noJobApplications.classList.remove("hidden");
+                }
+                if(currentStatus === "all-filter-btn"){
+                     secondCountName.innerText = "Jobs"
+                     totalApplicationsSecond.innerText = allApplications.children.length;
+                    }
+                else if(currentStatus ==="interview-filter-btn"){
+                    secondCountName.innerText ="Interviewers"
+                    totalApplicationsSecond.innerText = totalInterviewersContainer.length;
+                    }
+                else if(currentStatus === "rejected-filter-btn"){
+                    secondCountName.innerText ="Rejections"
+                    totalApplicationsSecond.innerText = totalRejectionsContainer.length;
+                    }
             }
-        }
-})
+            
 
-    
-  
+        }
+        
+})
 
 mainContainer.addEventListener("click",function (event){
     
@@ -240,11 +305,7 @@ mainContainer.addEventListener("click",function (event){
     renderInterviewers();
     renderRejections();
     calculateCount();
-   
-
-    
-        
-        
+     
     }  
       else if(event.target.classList.contains("reject-btn")){
         const applicationInformation = event.target.parentNode.parentNode;
@@ -280,9 +341,7 @@ mainContainer.addEventListener("click",function (event){
     }
     renderInterviewers();
     renderRejections();
-    calculateCount();
-    
-       
+    calculateCount();      
          
 }  
 })

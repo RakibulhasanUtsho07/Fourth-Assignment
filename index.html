@@ -41,7 +41,7 @@
         <section class="section space-y-5">
             <div class="flex justify-between">
                 <h3 class="text-[20px] font-semibold text-[#111827] mb-6">Available Jobs</h3>
-                <h3  class="total-participant text-[20px] font-semibold text-black/50"><span id="total-applications-second">0</span> Jobs </h3>
+                <h3  class="total-participant text-[20px] font-semibold text-black/50"><span id="total-applications-second">0</span> <span id="second-count-name">Jobs</span> </h3>
             </div>
             <div class="flex gap-4 ">
                 <button onclick="toggleStyle('all-filter-btn')" id="all-filter-btn"  class="p-3 text-white bg-blue-500 px-8 rounded  text-[12px] cursor-pointer">All</button>
@@ -49,9 +49,7 @@
                 <button onclick="toggleStyle('rejected-filter-btn')" id="rejected-filter-btn" class ="p-3 bg-white px-8 rounded text-[#64748B] text-[12px] cursor-pointer">Rejected</button>
             </div>
                 <div id="no-job-applications" class=" h-200 bg-white text-center p-[111px] mt-[20px] mb-[20px] space-y-3 rounded-lg hidden ">
-                <img src="./jobs.png" alt="" class="mx-auto">
-                <h3 class="text-[20px] font-semibold text-[#111827]">No jobs available</h3>
-                <p class="text-[14px] leading-[20px] text-[#323B49]">Check back soon for new job opportunities</p>
+                
             </div>
             <div id="job-applications-container" class=" mt-4 space-y-5 ">
                 <!--Application form 1-->
