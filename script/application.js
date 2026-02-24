@@ -184,9 +184,17 @@ function toggleStyle(id){
     }
         
     }
- 
+    
 
-   
+mainContainer.addEventListener("click", function(trash){
+    if(trash.target.classList.contains("card-delete")){
+        const  cardDelete = trash.target.parentNode.parentNode;
+        if(cardDelete){
+            cardDelete.remove();
+        }
+      
+    }
+})
 
     
   
